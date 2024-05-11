@@ -1,5 +1,6 @@
 package org.kuroneko42.rtp.command;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -9,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class TPCommand extends BukkitCommand {
 
@@ -30,11 +32,18 @@ public class TPCommand extends BukkitCommand {
 
             while (randomlocation.getBlock().getType() != Material.AIR
                     || randomlocation.clone().add(0, 1, 0).getBlock().getType() != Material.AIR
-                    && randomlocation.clone().add(0, -1, 0).getBlock().getType() == Material.AIR){
+                    || randomlocation.clone().add(0, -1, 0).getBlock().getType() == Material.AIR){
                 randomlocation.subtract(0, 1, 0);
             }
+
             player.teleport(randomlocation);
+            playerLoc(player);
         }
         return false;
+    }
+
+    public void playerLoc(Player player) {
+        Location playerLoc = player.getLocation();
+        player.sendMessage("티피완료 -> " + "X: " + playerLoc.getX() + "Y: " + playerLoc.getY() + "Z: " + playerLoc.getZ());
     }
 }
