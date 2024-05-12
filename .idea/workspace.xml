@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d7d44c0-f0dc-4340-8cef-6d0e630e2140" name="변경" comment="이제 진짜 오류 없이 가능하게 되었다">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kuroneko42/rtp/command/TPCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kuroneko42/rtp/command/TPCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +147,7 @@
       <workItem from="1715390024414" duration="1620000" />
       <workItem from="1715433435542" duration="58000" />
       <workItem from="1715458851302" duration="2720000" />
-      <workItem from="1715470684737" duration="9902000" />
+      <workItem from="1715470684737" duration="10217000" />
     </task>
     <task id="LOCAL-00001" summary="랜덤티피 완">
       <option name="closed" value="true" />
@@ -174,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715480596742</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="이제 진짜 오류 없이 가능하게 되었다">
+      <option name="closed" value="true" />
+      <created>1715482488624</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715482488624</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
