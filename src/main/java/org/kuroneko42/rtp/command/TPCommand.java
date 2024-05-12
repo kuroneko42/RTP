@@ -48,7 +48,7 @@ public class TPCommand extends BukkitCommand {
 
     public void playerLoc(Player player) {
         Location playerLoc = player.getLocation();
-        player.sendMessage("티피완료 -> " + "X: " + playerLoc.getX() + "Y: " + playerLoc.getY() + "Z: " + playerLoc.getZ());
+        player.sendMessage("티피완료 -> " + "X: " + playerLoc.getX() + " " + "Y: " + playerLoc.getY() + " " + "Z: " + playerLoc.getZ());
     }
 
     public boolean safeLoc(Location location) {
