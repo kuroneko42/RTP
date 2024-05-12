@@ -9,6 +9,8 @@ import org.bukkit.command.defaults.BukkitCommand;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
@@ -23,20 +25,22 @@ public class TPCommand extends BukkitCommand {
         if (sender instanceof Player player){
             Random random = new Random();
             World world = player.getWorld();
-            Location randomlocation;
+            List<Location> safeList = new ArrayList<>();
 
             int x = random.nextInt(20000) - 10000;
-            int y = random.nextInt(264) - 60;
+            int y = random.nextInt(260) - 60;
             int z = random.nextInt(20000) - 10000;
-            randomlocation = new Location(world, x + 0.5, y, z + 0.5);
 
-            while (randomlocation.getBlock().getType() != Material.AIR
-                    || randomlocation.clone().add(0, 1, 0).getBlock().getType() != Material.AIR
-                    || randomlocation.clone().add(0, -1, 0).getBlock().getType() == Material.AIR){
-                randomlocation.subtract(0, 1, 0);
+            for (int i = -60; i < 200; i++) {
+                Location safeY = new Location(world, x + 0.5, i, z + 0.5);
+
+                if (safeLoc(safeY)) {
+                    safeList.add(safeY);
+                }
+
             }
 
-            player.teleport(randomlocation);
+            player.teleport(safeList.get(random.nextInt(safeList.size())));
             playerLoc(player);
         }
         return false;
@@ -45,5 +49,14 @@ public class TPCommand extends BukkitCommand {
     public void playerLoc(Player player) {
         Location playerLoc = player.getLocation();
         player.sendMessage("티피완료 -> " + "X: " + playerLoc.getX() + "Y: " + playerLoc.getY() + "Z: " + playerLoc.getZ());
+    }
+
+    public boolean safeLoc(Location location) {
+        if (!location.getBlock().getRelative(0,-1,0).getType().isAir()
+            && location.getBlock().getRelative(0, 0, 0).getType().isAir()
+            && location.getBlock().getRelative(0, 1, 0).getType().isAir()) {
+            return true;
+        }
+        return false;
     }
 }
